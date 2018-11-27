@@ -4,14 +4,31 @@ var sourcemaps = require('gulp-sourcemaps');
 
 // bundle
 
-gulp.task('build-css:project-one', function () {
-  return gulp.src('./projects/project-one/style/sass/**/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./projects/project-one/style/css'));
+var projectsPaths = [
+    { projectName: 'project-one', srcPath: './projects/project-one/style/sass/**/*.scss', destPath: './projects/project-one/style/css' },
+    { projectName: 'profile-card', srcPath: './projects/profile-card/style/sass/**/*.scss', destPath: './projects/profile-card/style/css' }
+]
+
+gulp.task('build-css', function () {
+
+    for (var i = 0; i < projectsPaths.length; i++) {
+        var element = projectsPaths[i];
+
+        gulp.src(element.srcPath)
+            .pipe(sourcemaps.init())
+            .pipe(sass().on('error', sass.logError))
+            .pipe(sourcemaps.write('./'))
+            .pipe(gulp.dest(element.destPath));
+    }
+  
 });
 
 gulp.task('watch', function(){
-    gulp.watch('./projects/project-one/style/**/*.scss', ['build-css:project-one']);
+
+    for (var i = 0; i < projectsPaths.length; i++) {
+        var element = projectsPaths[i];
+        console.log('watch to:', element.projectName);
+        gulp.watch(element.srcPath, ['build-css']);
+    }
+
 });

@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:300,400,500,700");
+body {
+  margin: 0;
+  padding: 15px;
+  background-color: #f3f5f7;
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.5px; }
+  body * {
+    box-sizing: border-box; }
+
+.profile-card {
+  width: 370px;
+  padding: 50px 80px;
+  background: #fff;
+  transition: box-shadow ease-in-out .3s; }
+  .profile-card .logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; }
+    .profile-card .logo-row .avatar {
+      background-image: url("../../assets/avatar.jpg");
+      background-position: 50%;
+      background-size: cover;
+      border-radius: 50%;
+      height: 90px;
+      width: 90px;
+      z-index: 100; }
+    .profile-card .logo-row .rounded-icon {
+      position: absolute;
+      border-radius: 50%;
+      background: #f3f5f7;
+      color: #8ca4af;
+      font-size: 15px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 80;
+      transition: margin-left ease-in-out .3s; }
+      .profile-card .logo-row .rounded-icon:hover {
+        color: #ff7b34; }
+    .profile-card .logo-row:hover .left-icon {
+      margin-left: -80px; }
+    .profile-card .logo-row:hover .right-icon {
+      margin-left: 80px; }
+  .profile-card .desc-row {
+    text-align: center; }
+    .profile-card .desc-row h4 {
+      font-size: 17px;
+      color: #344750;
+      margin-bottom: 0px;
+      font-weight: 400; }
+    .profile-card .desc-row p {
+      color: #8ca4af;
+      margin-top: 0px;
+      font-weight: 300; }
+  .profile-card:hover {
+    box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.1); }
+
+/*# sourceMappingURL=style.css.map */
